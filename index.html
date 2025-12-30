@@ -1,51 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <title>Harsh Soni</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #000000, #222222);
-      color: #ffffff;
-    }
-    .card {
-      text-align: center;
-      padding: 20px 24px;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-    .card img {
-      max-width: 80vw;
-      max-height: 60vh;
-      object-fit: cover;
-      border-radius: 16px;
-      margin-bottom: 16px;
-    }
-    .name {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .place {
-      font-size: 16px;
-      opacity: 0.8;
-    }
-  </style>
+    <title>Harsh Soni - Happy New Year 2026</title>
+    <style>
+        body { 
+            margin: 0; font-family: Arial; 
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff); 
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+        }
+        .card { 
+            background: rgba(255,255,255,0.1); 
+            backdrop-filter: blur(10px); 
+            border-radius: 30px; 
+            padding: 40px; 
+            text-align: center; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+            max-width: 400px;
+        }
+        img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 20px; border: 4px solid white; }
+        h1 { color: white; font-size: 2.2em; margin: 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .happy-new-year { color: #ffd700; font-size: 2em; font-weight: bold; margin: 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .countdown { font-size: 3em; color: #00ff88; font-weight: bold; margin: 20px 0; }
+        .message { color: white; font-size: 1.2em; line-height: 1.5; }
+        .fireworks { font-size: 2em; animation: sparkle 1s infinite; }
+        @keyframes sparkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <img src="https://i.ibb.co/zHSZV8dV/IMG-20251023-134913-491.jpg" alt="Harsh Soni">
-    <div class="name">Harsh Soni</div>
-    <div class="place">Damoh, M.P</div>
-  </div>
+    <div class="card">
+        <img src="https://i.ibb.co/zHSZV8dV/IMG-20251023-134913-491.jpg" alt="Harsh Soni">
+        <h1>Harsh Soni</h1>
+        <div class="happy-new-year">🎉Happy New Year🎉</div>
+        <p style="color: #ffd700; font-size: 1.1em;">Damoh, Madhya Pradesh</p>
+        
+        <div class="countdown" id="countdown">
+            Loading...
+        </div>
+        
+        <div class="message">
+            नए साल 2026 की हार्दिक बधाई!<br>
+            नई शुरुआत, नई उम्मीदें!<br>
+            सफलता, खुशहाली और समृद्धि की कामना!<br>
+            **Damoh का सितारा चमके!** ✨
+        </div>
+        <div class="fireworks">✨🎇🎆🎊🎈</div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const newYear = new Date('2026-01-01T00:00:00');
+            const diff = newYear - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown').innerHTML = 
+                    `${days}दिन ${hours}घंटे ${minutes}मिनट ${seconds}सेकंड`;
+            } else {
+                document.getElementById('countdown').innerHTML = '🎉 खुशहाल नया साल 2026! 🎉';
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
